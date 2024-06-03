@@ -140,11 +140,11 @@ func listLainnya(i int)  {
 	fmt.Scan(&pilih)
 	switch pilih {
 	case 1:
-		addMoney(i)
+		bayarBPJS(i)
 	case 2:
-		pay(i)
+		beliListrik(i)
 	case 3:
-		transfer(i)
+		beliPulsa(i)
 	case 4:
 		list(i)
 	default:
@@ -236,9 +236,9 @@ func logout() {
 
 }
 
-func bayarBPJS(id, i int) {
+func bayarBPJS(i int) {
 	// IS. Masukan Berupa id pengguna dan sampai kapan ingin membayar
-	var pilih int
+	var pilih, id int
 	var total, harga, bulan float64
 
 	harga = 150.000
@@ -270,14 +270,14 @@ func bayarBPJS(id, i int) {
 		list(i)
 	default:
 		fmt.Println("Invalid choice")
-		bayarBPJS(id, i)
+		bayarBPJS(i)
 	}
 }
 
-func beliPulsa(noTelp, i int) {
+func beliPulsa(i int) {
 	// IS. Masukan Berupa nomor tele[pn]
 
-	var pulsa, pilih int
+	var pulsa, pilih, noTelp int
 	var admin, total float64
 
 	admin = 2.500
@@ -321,7 +321,7 @@ func beliPulsa(noTelp, i int) {
 			list(i)
 		default:
 			fmt.Println("Invalid choice")
-			beliPulsa(noTelp, i)
+			beliPulsa(i)
 		}
 	case 2:
 		total = 25.000 + admin
@@ -348,7 +348,7 @@ func beliPulsa(noTelp, i int) {
 			list(i)
 		default:
 			fmt.Println("Invalid choice")
-			beliPulsa(noTelp, i)
+			beliPulsa(i)
 		}
 	case 3:
 		total = 50.000 + admin
@@ -375,7 +375,7 @@ func beliPulsa(noTelp, i int) {
 			list(i)
 		default:
 			fmt.Println("Invalid choice")
-			beliPulsa(noTelp, i)
+			beliPulsa(i)
 		}
 	case 4:
 		total = 100.000 + admin
@@ -402,16 +402,16 @@ func beliPulsa(noTelp, i int) {
 			list(i)
 		default:
 			fmt.Println("Invalid choice")
-			beliPulsa(noTelp, i)
+			beliPulsa(i)
 		}
 	}
 
 }
 
-func beliListrik(noMeter, i int) {
+func beliListrik(i int) {
 	// IS. Masukan Berupa nomor tele[pn]
 
-	var listrik, pilih int
+	var listrik, pilih, noMeter int
 	var admin, total float64
 
 	admin = 2.500
@@ -457,7 +457,7 @@ func beliListrik(noMeter, i int) {
 			list(i)
 		default:
 			fmt.Println("Invalid choice")
-			beliListrik(noMeter, i)
+			beliListrik(i)
 		}
 	case 2:
 		total = 50.000 + admin
@@ -486,7 +486,7 @@ func beliListrik(noMeter, i int) {
 			list(i)
 		default:
 			fmt.Println("Invalid choice")
-			beliListrik(noMeter, i)
+			beliListrik(i)
 		}
 	case 3:
 		total = 100.000 + admin
@@ -515,7 +515,7 @@ func beliListrik(noMeter, i int) {
 			list(i)
 		default:
 			fmt.Println("Invalid choice")
-			beliListrik(noMeter, i)
+			beliListrik(i)
 		}
 	case 4:
 		total = 200.000 + admin
@@ -544,7 +544,7 @@ func beliListrik(noMeter, i int) {
 			list(i)
 		default:
 			fmt.Println("Invalid choice")
-			beliListrik(noMeter, i)
+			beliListrik(i)
 		}
 	}
 
