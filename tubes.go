@@ -189,11 +189,12 @@ func pay(i int) {
 	if bayar < data[i].saldo {
 		data[i].saldo -= bayar
 		fmt.Println("Pembayaran Berhasil")
+		list(i)
 	} else {
 		fmt.Println("Saldo Tidak Cukup")
 		list(i)
 	}
-	list(i)
+	
 }
 
 func transfer(i int) {
@@ -204,14 +205,22 @@ func transfer(i int) {
 	fmt.Println("Masukan Nominal Uang Yang Ingin Ditransfer :")
 	fmt.Scan(&saldo)
 
+
 	if saldo < data[i].saldo {
-		for i := 0; i < MAX; i++ {
-			if nama == data[i].users {
-				saldo = data[i].saldo
-			}
+		for x := 0; x < MAX; x++ {
+			if nama == data[x].users {
+				data[x].saldo += saldo 
+				data[i].saldo -= saldo 
+				list(i)
+			} 
 		}
+		
+	} else {
+		fmt.Print("Saldo Kurang")
+		list(i)
 	}
 
+	
 }
 
 // function
@@ -235,7 +244,7 @@ func checkUser(user, pass string, username *int) int {
 
 func logout() {
 	fmt.Println("Akun Berhasil Keluar")
-
+	
 }
 
 func bayarBPJS(i int) {
