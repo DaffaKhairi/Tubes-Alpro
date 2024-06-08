@@ -21,9 +21,7 @@ var data = [MAX]users{
 func main() {
 	var username, valid int
 	listAuth(&username, &valid)
-	if username <= 0 {
-		list(username)
-	}
+	
 }
 
 // Prosedur
@@ -76,7 +74,7 @@ func listAuth(username, valid *int) {
 	fmt.Println("-----------------------------------------------")
 	fmt.Println("1. Registrasi")
 	fmt.Println("2. Login")
-	fmt.Println("4. Keluar")
+	fmt.Println("3. Keluar")
 	fmt.Println("-----------------------------------------------")
 	fmt.Println("Masukan Angka yang ingin dipilih :")
 
@@ -90,6 +88,10 @@ func listAuth(username, valid *int) {
 		logout()
 	default:
 		fmt.Println("Invalid choice")
+	}
+
+	if *username >= 0 {
+		list(*username)
 	}
 }
 
@@ -133,7 +135,7 @@ func listLainnya(i int) {
 	fmt.Println("1. Bayar BPJS")
 	fmt.Println("2. Bayar Listrik")
 	fmt.Println("3. Bayar Pulsa")
-	fmt.Println("4. Kembali ")
+	fmt.Println("3. Kembali ")
 	fmt.Println("-----------------------------------------------")
 	fmt.Println("Masukan Angka yang ingin dipilih :")
 
@@ -214,9 +216,9 @@ func transfer(i int) {
 				list(i)
 			} 
 		}
-		
+		list(i)
 	} else {
-		fmt.Print("Saldo Kurang")
+		fmt.Println("Saldo Kurang")
 		list(i)
 	}
 
@@ -243,7 +245,10 @@ func checkUser(user, pass string, username *int) int {
 }
 
 func logout() {
+	var username, valid int
+	username, valid = -1, -1
 	fmt.Println("Akun Berhasil Keluar")
+	listAuth(&username, &valid)
 	
 }
 
